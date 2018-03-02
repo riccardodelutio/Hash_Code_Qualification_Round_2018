@@ -8,7 +8,7 @@ HASH-ME
 
 ## Team members :
 
-Aymeric Dieuleveu,
+Aymeric Dieuleveut,
 Evann Courdier,
 Riccardo de Lutio 
 
