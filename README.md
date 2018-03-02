@@ -1,5 +1,7 @@
 # Hash Code Qualification Round 2018
 
+Problem was on assigning rides to self-driving cars.
+
 ## Team name :
 
 HASH-ME
