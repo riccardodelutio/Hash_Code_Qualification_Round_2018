@@ -15,5 +15,5 @@ Submission to Hash Code 2018 Qualification round. We found a small mistake (see 
 
 ## Info :
 
-Problem statement in in the [pfd file](online_qualification_round_2018.pdf)
+Problem statement in in the [pdf file](online_qualification_round_2018.pdf)
 Code is in the [python file](hashcodequalification.py)
