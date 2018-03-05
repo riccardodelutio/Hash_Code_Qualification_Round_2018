@@ -38,9 +38,9 @@ def parse_input(file):
     result = np.hstack((result,(distance).reshape((result.shape[0],1)),(latest_start).reshape((result.shape[0],1)),(index_rides).reshape((result.shape[0],1))))
     return result,header
 
-"""### The following function is to write a solution to a file and download it"""
+"""### The following function is to write a solution to a file"""
 
-def write_download(solution, name='output.txt'):
+def write_solution(solution, name='output.txt'):
     file = open(name, 'w')
     for l in solution:
         file.write(str(len(l)) + ' ' + ' '.join(map(str, l)) + '\n')
@@ -221,4 +221,4 @@ while min_time < t_max: # Stopping criterion if all the time_free for every vehi
 
 print(score)  # Score function doesn't seem to work perfectly
 
-write_download(fleet_rides)
+write_solution(fleet_rides)
