@@ -173,7 +173,7 @@ def find_best_car(fleet_matrix, time_max):
 update_car :
 
 Once we have chosen the best car and it's best ride we have to update the fleet_matrix
-Also returns has_bonus boolean for the scoring function (which doesn't work perfectly)
+Also returns has_bonus boolean for the scoring function 
 """
 
 def update_car(fleet_matrix,best_ride,index_best_car):
