@@ -126,7 +126,7 @@ find_best_ride :
 
 finds the best ride for a given car
 """
-def find_best_ride(car, rides, rides_available):
+def find_best_ride(car, rides, rides_available, bonus):
     row_car, col_car, current_time = car
     lowest_cost = -1
     best_ride = -1
@@ -193,7 +193,7 @@ update :
 
 This runs one update, we want to find the earliest available car and assign it to the best ride possible
 """
-def update(fleet_matrix,fleet_rides,rides,rides_available,t_max,score):
+def update(fleet_matrix,fleet_rides,rides,rides_available,t_max,score, bonus):
     best_car, index_best_car = find_best_car(fleet_matrix, t_max)
     best_ride_index = find_best_ride(best_car, rides, rides_available)
     has_bonus = update_car(fleet_matrix,rides[best_ride_index,:], index_best_car)
@@ -201,7 +201,7 @@ def update(fleet_matrix,fleet_rides,rides,rides_available,t_max,score):
     if best_ride_index != -1:
         fleet_rides[index_best_car].append(best_ride_index) # We want to save the assigned rides
         score += rides[best_ride_index, 6]
-        score += has_bonus
+        score += has_bonus * bonus
     else:
         fleet_matrix[index_best_car,2] = t_max # If the car hasn't got a best ride, we want to set it's time_free at t_max so that we won't test it again (avoid infinite loop)
     return score
@@ -212,13 +212,13 @@ min_time = 0
 score = 0
 it=0
 while min_time < t_max: # Stopping criterion if all the time_free for every vehicule are set to t_max then there is nothing to do anymore
-    score = update(fleet_matrix,fleet_rides,rides,rides_available,t_max,score)
+    score = update(fleet_matrix,fleet_rides,rides,rides_available,t_max,score,bonus)
     it+=1
     if it%100==0:
         print(it,score) # print every 100 the iteration number and score
     min_time = np.min(fleet_matrix[:,2])
 
 
-print(score)  # Score function doesn't seem to work perfectly
+print(score)
 
 write_solution(fleet_rides)
